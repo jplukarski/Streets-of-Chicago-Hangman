@@ -1,5 +1,6 @@
 //Word bank for Hangman
 var wordList = [
+
     ["w", "e", "s", "t", "e", "r", "n"],
     ["f", "u", "l", "l", "e", "r", "t", "o", "n"],
     ["a", "s", "h", "l", "a", "n", "d"],
@@ -11,22 +12,27 @@ var wordList = [
     ["v", "i", "n", "c", "e", "n", "n", "e", "s"]
 ]
 
-
+var gameScore = document.querySelector(".totalWins")
+gameScore = 2
 
 //When the start button is hit, the game will work. After it is hit once the text will change to "Reset Game" and subseqently hitting that will... well... restart the game
 function startFunction() {
 
+    //"Gets" the reset button from the HTML page:
     document.querySelector(".startButton").innerHTML = "Reset Game";
-    //creates variable called "currentWord" and gives it a value of a random string from wordList
+    //creates variable called "currentWord" and gives it a value of a random string from wordList:
     var currentWord = wordList[Math.floor(Math.random() * wordList.length)];
 
+    //Creates an varieble with an empty array
     var wordAnswer = [];
 
+    //Indexes blank spaces in the array wordAnswer depending on which random word is selected
     for (var index = 0; index < currentWord.length; index++) {
         wordAnswer[index] = "_";
     }
     //logs the random word to the console
     console.log(currentWord);
+
     var targetDiv = document.querySelector(".currentWordInGame");
     //assigns that element in the HTML doc the text of the randomized current word
     targetDiv.textContent = wordAnswer.join(" ");
@@ -37,56 +43,39 @@ function startFunction() {
     var nextGuess = [];
 
 
+
+    //When a key is pressed: 
+
+    //creates the number of remaining guesses when the game is started
+
+    var remainingGuesses = 12 - 1
+
     document.onkeyup = function (event) {
-
-
+        //The pressed key is "captured" into this variable
         var userGuess = event.key;
 
+        //Console logs and pushes the guessed key into the array "Next Guess"
         nextGuess.push(userGuess);
         console.log(nextGuess);
 
+        document.querySelector(".guessCount").innerHTML = remainingGuesses--
+        if (remainingGuesses === -1) {
+            alert("You Suck!")
+        }
         for (index1 = 0; index1 < currentWord.length; index1++) {
 
-            if (currentWord[index1] === userGuess) {
+            if (currentWord[index1] !== userGuess) {
+                var nestGuessList = document.querySelector(".alreadyGuessed");
+                nestGuessList.innerHTML = nextGuess;
+                nestGuessList.innerHTML = nextGuess.join(" ");
+            }
+            else {
                 wordAnswer[index1] = userGuess;
                 console.log(wordAnswer);
                 targetDiv.innerHTML = wordAnswer.join(" ");
-            }
-            //  else if (remainingGuesses === 0) {
-            //    alert("You Suck!")
-            // }
-
-            else {
-
-                nestGuessList.innerHTML = nextGuess.join(" ");
-                document.querySelector(".guessCount").innerHTML = remainingGuesses - nextGuess.length
+                remainingGuesses++;
+                console.log(remainingGuesses)
             };
-
-
         }
-
-
-
     }
-
-    //   if (remainingGuesses === 0) {
-    //     alert("You Suck!")
-    // };
-
-
-
-
-
-
-    var nestGuessList = document.querySelector(".alreadyGuessed");
-    nestGuessList.innerHTML = nextGuess;
-    document.querySelector(".guessCount").innerHTML = remainingGuesses - nextGuess.length
-
-    //creates the number of remaining guesses when the game is started
-    var remainingGuesses = 9 + currentWord.length
-
-
-
-
-
 };
