@@ -9,7 +9,15 @@ var wordList = [
     ["s", "h", "i", "e", "l", "d", "s"],
     ["m", "a", "d", "i", "s", "o", "n"],
     ["c", "e", "r", "m", "a", "k"],
-    ["v", "i", "n", "c", "e", "n", "n", "e", "s"]
+    ["v", "i", "n", "c", "e", "n", "n", "e", "s"],
+    ["d", "i", "v", "e", "r", "s", "e", "y"],
+    ["p", "u", "l", "a", "s", "k", "i"],
+    ["e", "l", "s", "t", "o", "n"],
+    ["s", "t", "a", "t", "e"],
+    ["c", "h", "i", "c", "a", "g", "o"],
+    ["k", "e", "d", "z", "i", "e"],
+    ["t", "a", "y", "l", "o", "r"],
+
 ];
 
 
@@ -80,6 +88,7 @@ function startFunction() {
             alert("You Won!");
             startFunction();
             winTally++;
+
         };
 
 
