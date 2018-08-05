@@ -13,19 +13,23 @@
 <body>
 
     <h1 class="Hangman">Hangman Game</h1>
-    <button class="startButton">Click to Play</button>
+    <button onclick="javascript: startFunction()" class="startButton">Click to start playing.</button>
     <br>
-    <div>Total Wins: </div>
-    <div class="totalWins">0</div>
+    <div>Total Wins:
+        <div class="totalWins">0</div>
+    </div>
     <br>
-    <div>Current Word: </div>
-    <div class="currentWordInGame"></div>
+    <div>Current Word:
+        <div class="currentWordInGame"></div>
+    </div>
     <br>
-    <div>Number of Guesses remaining: </div>
-    <div class="remainingGuesses">12</div>
+    <div>Number of Guesses remaining:
+        <div class="guessCount"></div>
+    </div>
     <br>
-    <div>Letters already guessed: </div>
-    <div class="alreadyGuessed"></div>
+    <div>Letters already guessed:
+        <div class="alreadyGuessed"></div>
+    </div>
 </body>
 
 </html>
