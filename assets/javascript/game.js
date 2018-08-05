@@ -1,24 +1,22 @@
 //Word bank for Hangman
 var wordList = [
-    ["O", "R", "A", "n", "g", "e"],
-    ["A", "p", "p", "l", "e"],
-    ["B", "a", "n", "a", "n", "a"],
-    ["M", "a", "n", "g", "o"],
-    ["P", "e", "a", "c", "h"],
-    ["K", "i", "w", "i"],
+    ["w", "e", "s", "t", "e", "r", "n"],
+    ["f", "u", "l", "l", "e", "r", "t", "o", "n"],
+    ["a", "s", "h", "l", "a", "n", "d"],
+    ["o", "g", "d", "e", "n"],
+    ["a", "r", "c", "h", "e", "r"],
+    ["s", "h", "i", "e", "l", "d", "s"],
+    ["m", "a", "d", "i", "s", "o", "n"],
+    ["c", "e", "r", "m", "a", "k"],
+    ["v", "i", "n", "c", "e", "n", "n", "e", "s"]
 ]
 
 
 
 //When the start button is hit, the game will work. After it is hit once the text will change to "Reset Game" and subseqently hitting that will... well... restart the game
 function startFunction() {
+
     document.querySelector(".startButton").innerHTML = "Reset Game";
-
-
-    //creates the number of remaining guesses when the game is started
-    var remainingGuesses = 12;
-
-
     //creates variable called "currentWord" and gives it a value of a random string from wordList
     var currentWord = wordList[Math.floor(Math.random() * wordList.length)];
 
@@ -39,22 +37,41 @@ function startFunction() {
     var nextGuess = [];
 
 
-
     document.onkeyup = function (event) {
+
+
         var userGuess = event.key;
+
         nextGuess.push(userGuess);
         console.log(nextGuess);
+
         for (index1 = 0; index1 < currentWord.length; index1++) {
+
             if (currentWord[index1] === userGuess) {
-                wordAnswer[index1] = userGuess
+                wordAnswer[index1] = userGuess;
+                console.log(wordAnswer);
+                targetDiv.innerHTML = wordAnswer.join(" ");
             }
+            //  else if (remainingGuesses === 0) {
+            //    alert("You Suck!")
+            // }
+
+            else {
+
+                nestGuessList.innerHTML = nextGuess.join(" ");
+                document.querySelector(".guessCount").innerHTML = remainingGuesses - nextGuess.length
+            };
+
+
         }
-        var nestGuessList = document.querySelector(".alreadyGuessed");
-        nestGuessList.innerHTML = nextGuess.join(" ");
-        document.querySelector(".guessCount").innerHTML = remainingGuesses - nextGuess.length
+
+
+
     }
 
-
+    //   if (remainingGuesses === 0) {
+    //     alert("You Suck!")
+    // };
 
 
 
@@ -64,6 +81,9 @@ function startFunction() {
     var nestGuessList = document.querySelector(".alreadyGuessed");
     nestGuessList.innerHTML = nextGuess;
     document.querySelector(".guessCount").innerHTML = remainingGuesses - nextGuess.length
+
+    //creates the number of remaining guesses when the game is started
+    var remainingGuesses = 9 + currentWord.length
 
 
 
