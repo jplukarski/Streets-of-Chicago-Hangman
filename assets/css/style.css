@@ -1,0 +1,16 @@
+.main_body {
+
+    background-color: #f8f9fa;
+    border: #00a0d8 1px solid;
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
+.nav_bar {
+    background-color: #cb5351;
+    color: darkblue;
+}
+
+body {
+    background-image: url(../images/chicago-flag-watercolor-mike-maher.jpeg)
+}

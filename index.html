@@ -6,29 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Hangman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <script src="assets/javascript/game.js"></script>
 </head>
 
 <body>
 
-    <h1 class="Hangman">Hangman Game</h1>
-    <button onclick="javascript: startFunction()" class="startButton">Click to start playing.</button>
-    <br>
-    <div>Total Wins:
-        <div class="totalWins"></div>
+    <div class="col-md-12 col-sm-12 container navbar fixed-top nav_bar">
+        <h1 class="Hangman">Hangman: Streets of Chicago Edition</h1>
+        <h6>By: Joe Plukarski</h6>
     </div>
-    <br>
-    <div>Current Word:
-        <div class="currentWordInGame"></div>
+
+    <div class="container col-md-8 col-sm-6 main_body">
+        <button onclick="javascript: startFunction()" class="startButton">Click to start playing.</button>
+        <br>
+        <div>Total Wins:
+            <div class="totalWins"></div>
+        </div>
+        <br>
+        <div>Current Word:
+            <div class="currentWordInGame"></div>
+        </div>
+        <br>
+        <div>Number of Guesses remaining:
+            <div class="guessCount"></div>
+        </div>
+        <br>
+        <div>Letters already guessed:
+            <div class="alreadyGuessed"></div>
+        </div>
     </div>
-    <br>
-    <div>Number of Guesses remaining:
-        <div class="guessCount"></div>
-    </div>
-    <br>
-    <div>Letters already guessed:
-        <div class="alreadyGuessed"></div>
+
+    <div>
+        <nav class="justify-content-center col-md-12 container navbar fixed-bottom nav_bar col-sm-12">
+            <p class="footer">Copyright ©</p>
+        </nav>
     </div>
 </body>
 
