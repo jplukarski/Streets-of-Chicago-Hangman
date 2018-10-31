@@ -87,7 +87,7 @@ function startFunction() {
         if (remainingLetters === 0) {
             alert("You Won!");
             startFunction();
-            winTally++;
+            this.winTally++;
 
         };
 
